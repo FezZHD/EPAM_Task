@@ -17,9 +17,14 @@ namespace QuickSort
             {
                 capacity = Convert.ToInt32(Console.ReadLine());
             }
-            catch (ArgumentOutOfRangeException)
+            catch (FormatException)
             {
-                Console.WriteLine("Please, restart programm");
+                ExceptionActivity();
+                return;
+            }
+            catch (OverflowException)
+            {
+                ExceptionActivity();
                 return;
             }
             int[] randomArray = GetRandomArray(capacity);
@@ -49,6 +54,12 @@ namespace QuickSort
             {
                 Console.Write("{0} ", item);
             }
+        }
+
+        private static void ExceptionActivity()
+        {
+            Console.WriteLine("Please, restart programm");
+            Console.ReadLine();
         }
 
     }
