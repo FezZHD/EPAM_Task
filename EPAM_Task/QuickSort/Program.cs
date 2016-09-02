@@ -12,10 +12,18 @@ namespace QuickSort
         static void Main(string[] args)
         {
             Console.WriteLine("Capacity of your int array?");
-            int capacity = Convert.ToInt32(Console.ReadLine());
+            int capacity;
+            try
+            {
+                capacity = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Please, restart programm");
+                return;
+            }
             int[] randomArray = GetRandomArray(capacity);
             PrintArray(randomArray, "Your array is:\n");
-            Console.WriteLine(5>>1);
             Console.ReadLine();
         }
         
