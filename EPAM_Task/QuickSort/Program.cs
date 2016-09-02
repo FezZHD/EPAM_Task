@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +14,34 @@ namespace QuickSort
             Console.WriteLine("Capacity of your int array?");
             int capacity = Convert.ToInt32(Console.ReadLine());
             int[] randomArray = GetRandomArray(capacity);
+            PrintArray(randomArray, "Your array is:\n");
+            Console.WriteLine(5>>1);
+            Console.ReadLine();
         }
+        
 
         private static int[] GetRandomArray(int arrayCapacity)
         {
+            const int maxValue = 2000;
+            const int minValue = -2000;
             Random randomObject = new Random(); 
             int[] resultArray = new int[arrayCapacity];
             for (int i = 0; i < arrayCapacity; i++)
             {
-                resultArray[i] = randomObject.Next(-2000, 2000);
+                resultArray[i] = randomObject.Next(minValue, maxValue);
             }
             return resultArray;
         }
+
+
+        private static void PrintArray(int[] array, string text = null)
+        {
+            Console.WriteLine(text);
+            foreach (int item in array)
+            {
+                Console.Write("{0} ", item);
+            }
+        }
+
     }
 }
