@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuickSort
 {
-    static class Program
+    class Program
     {
         static void Main()
-        {
+        {        
             Console.WriteLine("Capacity of your int array?");
             uint capacity;
             try
@@ -31,6 +26,8 @@ namespace QuickSort
             PrintArray(randomArray, "Your array is:\n");
             QuickSort(ref randomArray, 0, (int) capacity - 1);
             PrintArray(randomArray, "\nYour sorted array is:\n");
+            double timeMark = capacity * Math.Log(capacity, 2);
+            Console.WriteLine("\nAverage algorithm time is O({0})", timeMark);
             Console.ReadLine();
         }
         
@@ -82,8 +79,10 @@ namespace QuickSort
                 while (array[endIndex] > middleElement)
                     endIndex--;
 
-                if (startIndex <= endIndex)
+                if (startIndex <= endIndex) 
                     Swap(ref array, ref startIndex, ref endIndex);
+
+                  
             }
 
              if (start < endIndex)
