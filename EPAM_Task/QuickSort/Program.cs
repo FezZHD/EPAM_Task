@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace QuickSort
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Capacity of your int array?");
-            int capacity;
+            uint capacity;
             try
             {
-                capacity = Convert.ToInt32(Console.ReadLine());
+                capacity = Convert.ToUInt32(Console.ReadLine());
             }
             catch (FormatException)
             {
@@ -29,11 +29,13 @@ namespace QuickSort
             }
             int[] randomArray = GetRandomArray(capacity);
             PrintArray(randomArray, "Your array is:\n");
+            QuickSort(ref randomArray, 0, (int) capacity - 1);
+            PrintArray(randomArray, "\nYour sorted array is:\n");
             Console.ReadLine();
         }
         
 
-        private static int[] GetRandomArray(int arrayCapacity)
+        private static int[] GetRandomArray(uint arrayCapacity)
         {
             const int maxValue = 2000;
             const int minValue = -2000;
@@ -56,11 +58,53 @@ namespace QuickSort
             }
         }
 
+
         private static void ExceptionActivity()
         {
             Console.WriteLine("Please, restart programm");
             Console.ReadLine();
         }
 
+
+        private static void QuickSort(ref int[] array,int start, int end)
+        {
+            int startIndex = start;
+            int endIndex = end;
+
+            int middleElement = array[(startIndex + endIndex) >> 1];
+
+            while (startIndex <= endIndex)
+            {
+
+                while (array[startIndex] < middleElement)
+                    startIndex++;
+
+                while (array[endIndex] > middleElement)
+                    endIndex--;
+
+                if (startIndex <= endIndex)
+                    Swap(ref array, ref startIndex, ref endIndex);
+            }
+
+             if (start < endIndex)
+            {
+                QuickSort(ref array, start, endIndex);
+            }
+ 
+            if (startIndex < end)
+            {
+                QuickSort(ref array, startIndex, end);
+            }
+        }
+
+
+        private static void Swap(ref int[] array,ref int firstPartIndex,ref int secondPartIndex)
+        {
+            int temp = array[firstPartIndex];
+            array[firstPartIndex] = array[secondPartIndex];
+            array[secondPartIndex] = temp;
+            firstPartIndex++;
+            secondPartIndex--;
+        }
     }
 }
