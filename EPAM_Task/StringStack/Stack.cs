@@ -12,7 +12,7 @@ namespace StringStack
 
         public StringStack()
         {
-            _stringStack = new string[1];
+            _stringStack = new string[0];
         }
 
 
@@ -52,12 +52,25 @@ namespace StringStack
         public void Clear()
         {
             Array.Clear(_stringStack, 0, _stringStack.Length);
+            Array.Resize(ref _stringStack, 0);
         }
 
 
         public override bool Equals(object comparableObject)
         {
             return _stringStack.Equals(comparableObject);
+        }
+
+
+        public override int GetHashCode()
+        {
+            return _stringStack.GetHashCode();
+        }
+
+
+        public override string ToString()
+        {
+            return _stringStack.ToString();
         }
     }
 }
