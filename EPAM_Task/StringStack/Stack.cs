@@ -5,6 +5,10 @@ namespace StringStack
 {
     public class StringStack
     {
+        public int Length {
+            get { return _stringStack.Length; }
+        }
+
         private string[] _stringStack;
 
         public StringStack()
