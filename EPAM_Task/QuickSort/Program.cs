@@ -7,21 +7,25 @@ namespace QuickSort
         static void Main()
         {        
             Console.WriteLine("Capacity of your int array?");
-            uint capacity;
-            try
-            {
-                capacity = Convert.ToUInt32(Console.ReadLine());
+            uint capacity = 0;
+            bool isCorrect = false;
+            while (!isCorrect)
+            {  
+                try
+                {
+                    capacity = Convert.ToUInt32(Console.ReadLine());
+                    isCorrect = true;
+                }
+                catch (FormatException)
+                {
+                    ExceptionActivity();
+                }
+                catch (OverflowException)
+                {
+                    ExceptionActivity();
+                }
             }
-            catch (FormatException)
-            {
-                ExceptionActivity();
-                return;
-            }
-            catch (OverflowException)
-            {
-                ExceptionActivity();
-                return;
-            }
+           
             int[] randomArray = GetRandomArray(capacity);
             PrintArray(randomArray, "Your array is:\n");
             QuickSort(ref randomArray, 0, (int) capacity - 1);
@@ -58,8 +62,7 @@ namespace QuickSort
 
         private static void ExceptionActivity()
         {
-            Console.WriteLine("Please, restart programm");
-            Console.ReadLine();
+            Console.WriteLine("Error, please, repeat your input");
         }
 
 
