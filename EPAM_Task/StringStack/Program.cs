@@ -13,6 +13,7 @@ namespace StringStack
             StringStack stack = new StringStack();
             stack.Push("Hello");            
             stack.Push("It's me");
+            stack.Push("!!!");
             Console.WriteLine("{0}",stack.Length);
             Console.WriteLine("{0}",stack.Peak());
             string[] arrayStrings = stack.ToArray();

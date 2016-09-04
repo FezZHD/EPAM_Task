@@ -6,7 +6,10 @@ namespace StringStack
     public class StringStack
     {
         public int Length {
-            get { return _stringStack.Length; }
+            get
+            {
+                return _stringStack.Length;
+            }
         }
 
         private string[] _stringStack;
@@ -20,7 +23,11 @@ namespace StringStack
         public void Push(string newString)
         {
             Array.Resize(ref _stringStack, _stringStack.Length + 1);
-            _stringStack[_stringStack.Length - 1] = newString;
+            for (int i = _stringStack.Length - 1 ; i > 0; i--)
+            {
+                _stringStack[i] = _stringStack[i - 1];
+            }
+            _stringStack[0] = newString;
         }
 
 
