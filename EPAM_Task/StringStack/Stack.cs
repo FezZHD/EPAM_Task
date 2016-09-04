@@ -62,23 +62,5 @@ namespace StringStack
             Array.Clear(_stringStack, 0, _stringStack.Length);
             Array.Resize(ref _stringStack, 0);
         }
-
-
-        public override bool Equals(object comparableObject)
-        {
-            return _stringStack.Equals(comparableObject);
-        }
-
-
-        public override int GetHashCode()
-        {
-            return _stringStack.GetHashCode();
-        }
-
-
-        public override string ToString()
-        {
-            return _stringStack.ToString();
-        }
     }
 }

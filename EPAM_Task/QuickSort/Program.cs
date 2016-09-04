@@ -34,13 +34,13 @@ namespace QuickSort
 
         private static int[] GetRandomArray(uint arrayCapacity)
         {
-            const int maxValue = 2000;
-            const int minValue = -2000;
+            const int MAX_VALUE = 2000;
+            const int MIN_VALUE = -2000;
             Random randomObject = new Random(); 
             int[] resultArray = new int[arrayCapacity];
             for (int i = 0; i < arrayCapacity; i++)
             {
-                resultArray[i] = randomObject.Next(minValue, maxValue);
+                resultArray[i] = randomObject.Next(MIN_VALUE, MAX_VALUE);
             }
             return resultArray;
         }

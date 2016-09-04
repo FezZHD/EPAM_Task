@@ -14,6 +14,7 @@ namespace StringStack
             stack.Push("Hello");            
             stack.Push("It's me");
             stack.Push("!!!");
+            stack.Push("kek");
             Console.WriteLine("{0}",stack.Length);
             Console.WriteLine("{0}",stack.Peak());
             string[] arrayStrings = stack.ToArray();
@@ -23,7 +24,8 @@ namespace StringStack
             }
             Console.WriteLine("{0}",stack.Pop());
             Console.WriteLine("{0}",stack.Length);
-            Console.WriteLine("{0}",stack.ToString());
+            stack.Clear();
+            Console.WriteLine("{0}", stack.Length);
             Console.ReadLine();
         }
     }
