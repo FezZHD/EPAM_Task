@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackGeneric
 {
-    class Stack<T> where T:class
+    class Stack<T> where T: class, new()
     {
         private T[] _stackArray;
 
