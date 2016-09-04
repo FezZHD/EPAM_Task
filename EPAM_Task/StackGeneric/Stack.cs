@@ -34,19 +34,36 @@ namespace StackGeneric
 
         public T Pop()
         {
-            T popedElement = _stackArray[0];
-            for (int i = 1; i < _stackArray.Length; i++)
+            T popedElement;
+            try
             {
-                _stackArray[i - 1] = _stackArray[i];
+                popedElement = _stackArray[0];
+                for (int i = 1; i < _stackArray.Length; i++)
+                {
+                    _stackArray[i - 1] = _stackArray[i];
+                }
+                Array.Resize(ref _stackArray, _stackArray.Length - 1);
+                return popedElement;
             }
-            Array.Resize(ref _stackArray, _stackArray.Length - 1);
-            return popedElement;
+            catch (IndexOutOfRangeException)
+            {
+                return null;
+            }          
         }
 
 
         public T Peek()
         {
-            return _stackArray[0];
+            try
+            {
+                return _stackArray[0];
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+                return null;
+            }
+           
         }
 
 

@@ -11,6 +11,7 @@ namespace StringStack
         static void Main(string[] args)
         {
             StringStack stack = new StringStack();
+            string temp = stack.Pop();
             stack.Push("Hello");            
             stack.Push("It's me");
             stack.Push("!!!");
