@@ -15,16 +15,13 @@ namespace StringStack
             stack.Push("Hello");            
             stack.Push("It's me");
             stack.Push("!!!");
-            stack.Push("kek");
             Console.WriteLine("{0}",stack.Length);
-            Console.WriteLine("{0}",stack.Peak());
+            Console.WriteLine("{0}",stack.Peek());
             string[] arrayStrings = stack.ToArray();
             foreach (string str in arrayStrings)
             {
                 Console.WriteLine(str);                
             }
-            arrayStrings[0] = "sooka";
-            string tempString = stack.Peak();
             Console.WriteLine("{0}",stack.Pop());
             Console.WriteLine("{0}",stack.Length);
             stack.Clear();

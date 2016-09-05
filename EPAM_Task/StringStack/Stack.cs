@@ -52,7 +52,7 @@ namespace StringStack
 
 
 
-        public string Peak()
+        public string Peek()
         {
             try
             {
