@@ -68,7 +68,7 @@ namespace StringStack
 
         public string[] ToArray()
         {
-            return _stringStack;
+            return (string[])_stringStack.Clone();
         }
 
 

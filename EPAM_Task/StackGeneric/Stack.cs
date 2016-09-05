@@ -11,7 +11,10 @@ namespace StackGeneric
         private T[] _stackArray;
 
         public int Length{
-            get { return _stackArray.Length; }
+            get
+            {
+                return _stackArray.Length;
+            }
         }
 
 
@@ -69,7 +72,7 @@ namespace StackGeneric
 
         public T[] ToArray()
         {
-            return _stackArray;
+            return (T[])_stackArray.Clone();
         }
 
 

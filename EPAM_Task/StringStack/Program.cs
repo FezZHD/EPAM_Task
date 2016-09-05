@@ -23,6 +23,8 @@ namespace StringStack
             {
                 Console.WriteLine(str);                
             }
+            arrayStrings[0] = "sooka";
+            string tempString = stack.Peak();
             Console.WriteLine("{0}",stack.Pop());
             Console.WriteLine("{0}",stack.Length);
             stack.Clear();

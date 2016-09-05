@@ -10,6 +10,7 @@ namespace StackGeneric
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

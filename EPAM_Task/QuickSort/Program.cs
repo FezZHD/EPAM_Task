@@ -66,7 +66,7 @@ namespace QuickSort
         }
 
 
-        private static void QuickSort(ref int[] array,int start, int end)
+        private static void QuickSort(ref int[] array, int start, int end)
         {
             int startIndex = start;
             int endIndex = end;
@@ -83,24 +83,19 @@ namespace QuickSort
                     endIndex--;
 
                 if (startIndex <= endIndex) 
-                    Swap(ref array, ref startIndex, ref endIndex);
-
-                  
+                    Swap(ref array, ref startIndex, ref endIndex);      
             }
 
-             if (start < endIndex)
-            {
+            if (start < endIndex)
                 QuickSort(ref array, start, endIndex);
-            }
+            
  
             if (startIndex < end)
-            {
                 QuickSort(ref array, startIndex, end);
-            }
         }
 
 
-        private static void Swap(ref int[] array,ref int firstPartIndex,ref int secondPartIndex)
+        private static void Swap(ref int[] array, ref int firstPartIndex, ref int secondPartIndex)
         {
             int temp = array[firstPartIndex];
             array[firstPartIndex] = array[secondPartIndex];
