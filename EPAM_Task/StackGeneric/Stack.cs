@@ -27,11 +27,7 @@ namespace StackGeneric
         public void Push(T newElement)
         {
             Array.Resize(ref _stackArray, _stackArray.Length + 1);
-            for (int i = _stackArray.Length - 1; i > 0; i--)
-            {
-                _stackArray[i] = _stackArray[i - 1];
-            }
-            _stackArray[0] = newElement;
+            _stackArray[Length - 1] = newElement;
         }
 
 
@@ -40,11 +36,7 @@ namespace StackGeneric
             T popedElement;
             try
             {
-                popedElement = _stackArray[0];
-                for (int i = 1; i < _stackArray.Length; i++)
-                {
-                    _stackArray[i - 1] = _stackArray[i];
-                }
+                popedElement = _stackArray[Length - 1];
                 Array.Resize(ref _stackArray, _stackArray.Length - 1);
                 return popedElement;
             }
@@ -59,7 +51,7 @@ namespace StackGeneric
         {
             try
             {
-                return _stackArray[0];
+                return _stackArray[Length - 1];
             }
             catch (IndexOutOfRangeException)
             {
@@ -72,7 +64,9 @@ namespace StackGeneric
 
         public T[] ToArray()
         {
-            return (T[])_stackArray.Clone();
+            T[] returnArray = (T[]) _stackArray.Clone();
+            Array.Reverse(returnArray);
+            return returnArray;
         }
 
 

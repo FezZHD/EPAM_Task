@@ -23,11 +23,7 @@ namespace StringStack
         public void Push(string newString)
         {
             Array.Resize(ref _stringStack, _stringStack.Length + 1);
-            for (int i = _stringStack.Length - 1 ; i > 0; i--)
-            {
-                _stringStack[i] = _stringStack[i - 1];
-            }
-            _stringStack[0] = newString;
+            _stringStack[Length - 1] = newString;
         }
 
 
@@ -35,12 +31,7 @@ namespace StringStack
         {
             try
             {
-                string popedString = _stringStack[0];
-                for (int i = 1; i < _stringStack.Length; i++)
-                {
-                    _stringStack[i - 1] = _stringStack[i];
-                }
-
+                string popedString = _stringStack[Length - 1];
                 Array.Resize(ref _stringStack, _stringStack.Length -1);
                 return popedString;
             }
@@ -56,7 +47,7 @@ namespace StringStack
         {
             try
             {
-                return _stringStack[0];
+                return _stringStack[Length - 1];
             }
             catch (IndexOutOfRangeException)
             {
@@ -68,7 +59,9 @@ namespace StringStack
 
         public string[] ToArray()
         {
-            return (string[])_stringStack.Clone();
+            string[] returnArray = (string[]) _stringStack.Clone();
+            Array.Reverse(returnArray);
+            return returnArray;
         }
 
 
